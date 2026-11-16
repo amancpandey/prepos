@@ -1,0 +1,16 @@
+fastapi
+uvicorn[standard]
+sqlalchemy>=2
+psycopg[binary]
+alembic
+pydantic-settings
+python-multipart
+httpx
+redis
+celery
+pgvector
+sentence-transformers
+pypdf
+pytest
+pytest-asyncio
+ruff

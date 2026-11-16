@@ -1,0 +1,22 @@
+services:
+  db:
+    image: pgvector/pgvector:pg16
+    environment:
+      POSTGRES_DB: prepos
+      POSTGRES_USER: prepos
+      POSTGRES_PASSWORD: prepos
+    ports:
+      - "5434:5432"
+    volumes:
+      - prepos_pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U prepos -d prepos"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+  redis:
+    image: redis:7-alpine
+    ports:
+      - "6381:6379"
+volumes:
+  prepos_pgdata:
